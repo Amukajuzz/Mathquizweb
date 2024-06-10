@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang="myQuizTitle">MyQuiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html" >Quiz Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html" data-lang="main">Main</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="About.html" data-lang="about">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="AllQuizzes.html" data-lang="allQuizzes">All Quizzes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Donations.html" data-lang="donations">Donations</a>
+            </li>
+        </ul>
+        <div class="language_switch ml-auto">
+            <button class="btn btn-outline-light btn-sm" onclick="changeLanguage('en')">English</button>
+            <button class="btn btn-outline-light btn-sm" onclick="changeLanguage('ru')">Русский</button>
+        </div>
+    </div>
+</header>
+<main id="container">
+    <div class="start_container">
+        <div class="start_btn"><button data-lang="startQuiz">Start Quiz</button></div>
+        <div class="leaderboard"><button data-lang="leaderboard">Leaderboard</button></div>
+    </div>
+    <div class="name_box">
+        <input type="text" class="name" data-lang-placeholder="enterName" placeholder="What's your name?" />
+        <input type="button" class="name_btn" data-lang-value="letsStart" value="Okay! Let's Start" />
+    </div>
+    <div class="instructions">
+        <div class="info_title">
+            <span data-lang="rulesTitle">Rules of the Quiz</span>
+        </div>
+        <div class="info_list">
+            <div class="info">
+                <span data-lang="rule1">1. You only have <span>15 seconds</span> per each question.</span>
+            </div>
+            <div class="info">
+                <span data-lang="rule2">2. Once you choose your answer, you cannot select again.</span>
+            </div>
+            <div class="info">
+                <span data-lang="rule3">3. You cannot choose any options after the time is up.</span>
+            </div>
+            <div class="info">
+                <span data-lang="rule4">4. You cannot quit the Quiz while you are playing.</span>
+            </div>
+            <div class="info">
+                <span data-lang="rule5">5. Once you finish click "Submit Score" to enter the leaderboard.</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="quit" data-lang="giveUp">Give Up</button>
+            <button class="restart" data-lang="continue">Continue</button>
+        </div>
+    </div>
+    <div class="math-quiz">
+        <header>
+            <div class="title" data-lang="quizTitle">Math Quiz</div>
+            <div class="timer">
+                <div class="time_text" data-lang="timeRemaining">Time Remaining</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div>
+                <span id="questions">
+                    <p id="num1"></p>
+                    X
+                    <p id="num2"></p>
+                </span>
+            </div>
+            <div class="option_list">
+                <div class="option" id="option1"></div>
+                <div class="option" id="option2"></div>
+                <div class="option" id="option3"></div>
+                <div class="option" id="option4"></div>
+            </div>
+        </section>
+        <footer>
+            <div class="points">
+                <div class="point_text" data-lang="yourScore">Your Score</div>
+                <div class="point_no">0</div>
+            </div>
+            <button class="next_btn" data-lang="showResults">Show Results</button>
+        </footer>
+    </div>
+    <div class="result_box">
+        <div>
+            <span data-lang="highestScore">Highest Score:</span>
+            <p>2053 Points</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text" data-lang="congratulations">Congratulations! You have completed the Quiz</div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <button class="restart" data-lang="submitMyScore">Submit My Score</button>
+            <button class="quit" data-lang="playAgain">Play Again</button>
+        </div>
+    </div>
+</main>
+<a id="leaderboard_link" href="https://drive.google.com/file/d/1m0WULlae5pYoBCkdNt1zS-QC65aSoot_/view?usp=sharing" target="_blank"></a>
+<a id="link" target="_blank"></a>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title data-lang="allQuizzesTitle">All Quizzes</title>
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html" >Quiz Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html" data-lang="main">Main</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="About.html" data-lang="about">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="AllQuizzes.html" data-lang="allQuizzes">All Quizzes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Donations.html" data-lang="donations">Donations</a>
+            </li>
+        </ul>
+        <div class="language_switch ml-auto">
+            <button class="btn btn-outline-light btn-sm" onclick="changeLanguage('en')">English</button>
+            <button class="btn btn-outline-light btn-sm" onclick="changeLanguage('ru')">Русский</button>
+        </div>
+    </div>
+</header>
+    <main class="container mt-4">
+        <h1 data-lang="allQuizzes">All Quizzes</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="unnamed.png" class="card-img-top" alt="Math Quiz">
+                    <div class="card-body">
+                        <h5 class="card-title" data-lang="mainMathQuiz">Main Math Quiz</h5>
+                        <p class="card-text" data-lang="mathQuizDesc">Test your skills with our engaging Math Quiz!</p>
+                        <a href="quiz.html#quiz-section" class="btn btn-primary" data-lang="takeQuiz">Take Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<p class="p-spacer"></p>
+    <footer class="bg-dark text-white text-center p-3">
+        &copy; 2024 Quiz Portal, Inc.
+    </footer>
+</body>
+</html>
+<script>
+const translations = {
+    en: {
+        mainTitle: "Main Page",
+        aboutTitle: "About Us",
+        allQuizzesTitle: "All Quizzes",
+        donationsTitle: "Donations",
+        main: "Main",
+        about: "About",
+        allQuizzes: "All Quizzes",
+        donations: "Donations",
+        mainMathQuiz: "Main Math Quiz",
+        mathQuizDesc: "Test your skills with our engaging Math Quiz!",
+        takeQuiz: "Take Quiz"
+    },
+    ru: {
+        mainTitle: "Главная",
+        aboutTitle: "О нас",
+        allQuizzesTitle: "Все Викторины",
+        donationsTitle: "Пожертвования",
+        main: "Главная",
+        about: "О нас",
+        allQuizzes: "Все Викторины",
+        donations: "Пожертвования",
+        mainMathQuiz: "Основная Математическая Викторина",
+        mathQuizDesc: "Проверьте свои умения с нашей захватывающей математической викториной!",
+        takeQuiz: "Принять участие"
+    }
+};
+
+function changeLanguage(lang) {
+    localStorage.setItem('selectedLanguage', lang); // Сохраняем выбранный язык в localStorage
+    document.querySelectorAll('[data-lang]').forEach(elem => {
+        const key = elem.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+            if (elem.tagName === "INPUT" && (elem.type === "button" || elem.type === "submit")) {
+                elem.value = translations[lang][key];
+            } else if (elem.tagName === "INPUT") {
+                elem.placeholder = translations[lang][key];
+            } else {
+                elem.textContent = translations[lang][key];
+            }
+        }
+    });
+}
+
+// Проверка и установка языка при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'en'; // Получаем язык из localStorage или используем 'en' как значение по умолчанию
+    changeLanguage(savedLanguage);
+});
+
+</script>
